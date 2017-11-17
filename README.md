@@ -1,1 +1,3 @@
-# savitch-programs
+# Absolute Java
+
+Revisiting the language.
