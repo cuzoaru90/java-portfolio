@@ -19,16 +19,23 @@ public class FirstLast {
 
   public static void main (String [] args){
 
-    String first = "first", last = "last";
+    String first = "michael", last = "jordan";
     String pigName = "";
 
-    pigName = first.substring(1, first.length() )
-            + first.substring(0,1).toUpperCase() + "ay "
-            + last.substring(1, last.length() )
-            + last.substring(0, 1).toUpperCase() + "ay";
+    // Creates uncapitalized pig latin for first and last names
+    first = first.substring(1, first.length() )
+            + first.substring(0,1) + "ay ";
+
+    last =  last.substring(1, last.length() )
+            + last.substring(0, 1) + "ay";
+
+    // Capitalization in Java
+    first = first.substring(0,1).toUpperCase() + first.substring(1);
+    last = last.substring(0,1).toUpperCase() + last.substring(1);
+
+    pigName = first + last;
 
     System.out.println(pigName);
-
 
   }
 
