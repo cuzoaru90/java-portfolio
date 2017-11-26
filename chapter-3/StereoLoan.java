@@ -14,7 +14,6 @@ payment may be less than $50 if the debt is small, but do not forget the interes
 of $50 will not pay off your debt, although it will come close. One month's interest on $50 is only 75 cents.
  */
 
-import java.util.*;
 
 public class StereoLoan {
 

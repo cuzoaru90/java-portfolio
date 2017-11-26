@@ -10,34 +10,33 @@
  *
  */
 
-import java.util.*;
+  import java.util.*;
 
-public class Babylonia2 {
+  public class Babylonia2 {
 
     public static void main (String[] args){
+      int n;
+      double r, guess;
 
-        int n;
-        double r, guess;
+      Scanner keyboard = new Scanner(System.in);
 
-        Scanner keyboard = new Scanner(System.in);
+      System.out.println("Enter an integer value for n");
 
-        System.out.println("Enter an integer value for n");
+      n = keyboard.nextInt();
 
-        n = keyboard.nextInt();
+      guess = n / 2.0;
 
-        guess = n / 2.0;
+      r = n / guess;
 
+      // Checks difference between current guess and guess generated from formula
+      while ( guess - ((guess + r) / 2) > 0.01 ) {
+        guess = (guess + r) / 2;
         r = n / guess;
+      }
 
-        // Checks difference between current guess and guess generated from formula
-        while ( guess - ((guess + r) / 2) > 0.01 ) {
-            guess = (guess + r) / 2;
-            r = n / guess;
-            // System.out.println("guess: " + guess);
-        }
+      System.out.printf("Square root of %d is %.2f", n, r);
 
-        System.out.printf("%.2f", r);
     }
 
-}
+  }
 

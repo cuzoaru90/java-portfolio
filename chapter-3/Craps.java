@@ -14,7 +14,6 @@ Note: To generate a random number x, where 0 <= x < 1, use x = Math.random(). Fo
 by 6 and converting to int results in a random integer between 0 and 5.
 */
 
-import java.util.*;
 import java.text.DecimalFormat;
 
 public class Craps {
