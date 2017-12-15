@@ -43,41 +43,30 @@ public class Fraction2 {
   // do comparison with local fractions; avoid mutation on calling object
   public boolean equals(Fraction2 anotherFraction){
 
-      Fraction2 thisFraction = evaluateLowestTerms(numerator, denominator);
-      Fraction2 otherFraction = evaluateLowestTerms(anotherFraction.numerator, anotherFraction.denominator);
+      Fraction2 thisFraction = Fraction2.evaluateLowestTerms(numerator, denominator);
+      Fraction2 otherFraction = Fraction2.evaluateLowestTerms(anotherFraction.numerator, anotherFraction.denominator);
 
       return (thisFraction.numerator == otherFraction.numerator &&
             thisFraction.denominator == otherFraction.denominator);
   }
 
   // returns fraction objects that will be used in scope of the equals method above
-  public Fraction2 evaluateLowestTerms(int numerator, int denominator){
+  public static Fraction2 evaluateLowestTerms(int numerator, int denominator){
 
-    int counter = 0;
-    int lowestNumerator = numerator;
-    int lowestDenominator = denominator;
-
-
-    if (lowestNumerator > lowestDenominator){
-      counter = lowestDenominator;
-    }
-    else if (lowestDenominator > lowestNumerator){
-      counter = lowestNumerator;
-    }
+    int counter = denominator;
 
     while (counter > 0){
-      if (lowestDenominator % counter == 0 &&
-            lowestNumerator % counter == 0 )
+      if (denominator % counter == 0 &&
+            numerator % counter == 0 )
       {
-        lowestDenominator /= counter;
-        lowestNumerator /= counter;
+        denominator /= counter;
+        numerator /= counter;
       }
-          counter--;
+        counter--;
       }
 
-      return new Fraction2(lowestNumerator, lowestDenominator);
+      return new Fraction2(numerator, denominator);
   }
-
 
 
 }
