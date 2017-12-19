@@ -22,31 +22,25 @@ public class DuelistTest {
         // Aaron's turn
         if (aaron.isAlive() && charlie.isAlive()) {
           aaron.shootAtTarget(charlie);
-          // System.out.println("Aaron shoots at Charlie" + "\n" + charlie.toString());
         }
         else if (aaron.isAlive() && !charlie.isAlive()) {
           aaron.shootAtTarget(bob);
-          // System.out.println("Aaron shoots at Bob" + "\n" + bob.toString());
         }
 
         // Bob's turn
         if (bob.isAlive() && charlie.isAlive()) {
           bob.shootAtTarget(charlie);
-          // System.out.println("Bob shoots at Charlie" + "\n" + charlie.toString());
         }
         else if (bob.isAlive() && !charlie.isAlive()) {
           bob.shootAtTarget(aaron);
-          // System.out.println("Bob shoots at Aaron" + "\n" + aaron.toString());
         }
 
         // Charlie's turn
         if (charlie.isAlive() && bob.isAlive()) {
           charlie.shootAtTarget(bob);
-          // System.out.println("Charlie shoots at Bob" + "\n" + bob.toString());
         }
         else if (charlie.isAlive() && !bob.isAlive()) {
           charlie.shootAtTarget(aaron);
-          // System.out.println("Charlie shoots at Aaron" + "\n" + aaron.toString());
         }
 
         duelistsStanding = Duelist.duelistsAlive; // updates value when duelist falls

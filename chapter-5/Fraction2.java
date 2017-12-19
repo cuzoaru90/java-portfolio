@@ -17,22 +17,16 @@ public class Fraction2 {
   private int numerator, denominator;
 
   public Fraction2(){
-    setNumerator(0);
-    setDenominator(0);
+    setValues(0,0);
   }
 
   public Fraction2(int numerator, int denominator){
-    setNumerator(numerator);
-    setDenominator(denominator);
+    setValues(numerator, denominator);
   }
 
-  // mutator
-  public void setNumerator(int n){
+
+  public void setValues(int n, int d){
     numerator = n;
-  }
-
-  // mutator
-  public void setDenominator(int d) {
     denominator = d;
   }
 
@@ -67,6 +61,5 @@ public class Fraction2 {
 
       return new Fraction2(numerator, denominator);
   }
-
 
 }

@@ -17,22 +17,40 @@ public class Money {
 
   private int dollars, cents;
 
+  /** No-parameter ("default") constructor
+   *
+   */
   public Money(){
     dollars = 0;
     cents = 0;
   }
 
-  public Money(int bills, int coins){
-    dollars = bills;
-    cents = coins;
-  }
-
+  /** One parameter constructor
+   *
+   * @param bills
+   */
   public Money(int bills){
     dollars = bills;
     cents = 0;
   }
 
-  // static version
+  /** Two parameter constructor
+   *
+   * @param bills
+   * @param coins
+   */
+  public Money(int bills, int coins){
+    dollars = bills;
+    cents = coins;
+  }
+
+
+  /** Adds money objects
+   *
+   * @param amount1
+   * @param amount2
+   * @return Money object from addition
+   */
   public static Money add(Money amount1, Money amount2){
 
     int sumCents = 0;
@@ -44,7 +62,12 @@ public class Money {
 
   }
 
-  // static version
+  /** Subtracts money objects
+   *
+   * @param amount1
+   * @param amount2
+   * @return Money object from subtraction
+   */
   public static Money minus(Money amount1, Money amount2){
 
     int differenceCents = 0;
@@ -56,34 +79,27 @@ public class Money {
 
   }
 
-  // non-static version
   public Money add(Money anotherMoney){
-
-    int sumCents = 0;
-
-    sumCents = ( cents + (dollars * 100) ) +
-            ( anotherMoney.cents + (anotherMoney.dollars * 100) );
-
-    return new Money(sumCents / 100,  sumCents % 100 );
+    return add(this, anotherMoney);
   }
 
-  // non-static version
   public Money minus(Money anotherMoney){
-
-    int differenceCents = 0;
-
-    differenceCents = ( cents + (dollars * 100) ) -
-            ( anotherMoney.cents + (anotherMoney.dollars * 100) );
-
-    return new Money(differenceCents / 100,  differenceCents % 100 );
+    return minus(this, anotherMoney);
   }
 
-  // non-static version
+  /** Converts money object to String
+   *
+   * @return String representation of Money
+   */
   public String toString(){
     return dollars + " dollars " + cents + " cents";
   }
 
-
+  /** Checks for equality
+   *
+   * @param anotherMoney
+   * @return Value of boolean expression
+   */
   public boolean equals(Money anotherMoney){
     return (dollars == anotherMoney.dollars &&
        cents == anotherMoney.cents);
