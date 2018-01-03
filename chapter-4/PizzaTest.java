@@ -6,7 +6,6 @@ public class PizzaTest {
     String description = aPizza.getDescription();
     System.out.println(description);
 
-
     aPizza.setToppings(2, 0, 3);
     aPizza.setSize("medium");
 

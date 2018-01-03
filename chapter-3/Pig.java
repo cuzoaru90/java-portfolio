@@ -48,7 +48,7 @@ public class Pig {
           playerScore = lastTurnPlayerScore;
         }
         else if (playerScore >= 100) {
-          System.out.println("Player wins");
+          System.out.printf("Player wins with %d points\n", playerScore );
           System.exit(0);
         }
         else {
@@ -68,7 +68,6 @@ public class Pig {
 
       // Computer turn logic
       else{
-
         int dieRoll = (int) (Math.random() * 6) + 1;
 
         if (dieRoll == 1){
@@ -87,7 +86,7 @@ public class Pig {
 
         if (computerScore >= 100) {
           System.out.printf("Computer wins with %d points", computerScore );
-          gameOver = true;
+          System.exit(0);
         }
       } // end of computer logic
 

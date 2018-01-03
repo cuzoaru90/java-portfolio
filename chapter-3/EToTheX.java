@@ -22,13 +22,12 @@ import java.util.*;
 
       int nInput = 0;
       double xInput = 0;
-      boolean programAlive = true;
+      boolean programRunning = true;
       String choice = "";
 
       Scanner keyboard = new Scanner(System.in);
 
       do {
-
         double sum = 0;
         System.out.println("Enter a value for x and n");
 
@@ -37,7 +36,6 @@ import java.util.*;
 
           // For input value of x, do n iterations of the Taylor series
         for (int i = 0; i <= nInput; i++) {
-
           // calculated values for x^0 and 0!
           double nthFactorial = 1;
           double nthPower = 1;
@@ -47,9 +45,7 @@ import java.util.*;
             nthPower *= xInput;
             nthFactorial = nthFactorial * j;
           }
-
           sum += (nthPower/nthFactorial);
-
         }
 
         System.out.printf("Approximated sum of e^%.2f is %.2f\n", xInput, sum);
@@ -57,9 +53,9 @@ import java.util.*;
         choice = keyboard.next();
 
         if ( choice.equals("q") )
-          programAlive = false;
+          programRunning = false;
 
-      } while (programAlive);
+      } while (programRunning);
 
     }
   }

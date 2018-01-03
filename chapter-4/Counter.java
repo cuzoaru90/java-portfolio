@@ -11,36 +11,58 @@ toString method and and equals method. Write a program (or programs) to test all
 public class Counter {
   private int count;
 
+  /**
+   * Constructor
+   */
   public Counter(){
     count = 0;
   }
 
+  /**
+   * Accessor
+   * @return Value of count (int)
+   */
   public int getCount(){
     return count;
   }
 
+  /**
+   * Displays count to the console
+   */
   public void displayCount(){
     System.out.println( toString() );
   }
 
+  /**
+   * Convert count variable to String
+   * @return
+   */
   public String toString(){
     return " " + count;
   }
 
+  /**
+   * Resets count
+   */
   public void resetCount(){
     count = 0;
   }
 
+  /**
+   * Increment count variable
+   */
   public void increaseCount(){
     count++;
   }
 
+  /**
+   * Decrement count variable
+   */
   public void decreaseCount(){
     if (count > 0){
       count--;
     }
   }
-
 
 
 }

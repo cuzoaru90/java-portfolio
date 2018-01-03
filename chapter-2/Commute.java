@@ -23,7 +23,6 @@ public class Commute {
 
       System.out.printf("$%.2f", cost);
 
-
   }
 
 }

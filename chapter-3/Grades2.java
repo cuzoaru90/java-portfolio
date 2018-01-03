@@ -12,10 +12,6 @@ public class Grades2 {
   public static void main (String[]args){
 
     int exercises = 0;
-    double percentage;
-
-    DecimalFormat percent = new DecimalFormat("0.00%");
-
     int totalPoints = 0, totalPossible = 0;
 
     Scanner keyboard = new Scanner(System.in);
@@ -28,6 +24,7 @@ public class Grades2 {
 
       System.out.printf("\nScore received for exercise %d\n", i);
       pointsEarned = keyboard.nextInt();
+
       System.out.printf("Total points possible for exercise %d\n", i);
       pointsPossible = keyboard.nextInt();
 
@@ -35,12 +32,11 @@ public class Grades2 {
       totalPossible += pointsPossible;
     }
 
-    percentage = totalPoints * 1.0 / totalPossible;
+    double percentage = totalPoints * 1.0 / totalPossible;
+    DecimalFormat percent = new DecimalFormat("0.00%");
 
     System.out.printf("\nYour total is %d out of %d, or ", totalPoints, totalPossible);
     System.out.println(percent.format(percentage));
-
-
 
   }
 

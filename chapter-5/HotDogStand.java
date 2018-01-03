@@ -16,17 +16,29 @@ public class HotDogStand {
 
   private int standID, dogsSold;
 
+  /**
+   * Constructor
+   * @param id
+   * @param dogs
+   */
   public HotDogStand(int id, int dogs){
     standID = id;
     dogsSold = dogs;
     totalDogsSold += dogsSold;
   }
 
+  /**
+   * Mutator
+   */
   public void justSold(){
     dogsSold++;
     totalDogsSold++;
   }
 
+  /**
+   * Accessor
+   * @return Number of dogs sold
+   */
   public static int getDogsSold(){
     return totalDogsSold;
   }

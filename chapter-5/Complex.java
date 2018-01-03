@@ -28,16 +28,16 @@ public class Complex {
 
   private double real, imaginary;
 
-  /** No-parameter ("default") constructor
-   *
+  /**
+   * No-parameter ("default") constructor
    */
   public Complex(){
     real = 0;
     imaginary = 0 * I;
   }
 
-  /** One parameter constructor
-   *
+  /**
+   * One parameter constructor
    * @param realPart
    */
   public Complex(double realPart){
@@ -45,8 +45,8 @@ public class Complex {
     imaginary = 0 * I;
   }
 
-  /** Two parameter constructor
-   *
+  /**
+   * Two parameter constructor
    * @param realPart
    * @param imaginaryPart
    */
@@ -55,8 +55,8 @@ public class Complex {
     imaginary = imaginaryPart;
   }
 
-  /** Mutator; sets values
-   *
+  /**
+   * Mutator; sets values
    * @param realPart
    * @param imaginaryPart
    */
@@ -65,8 +65,8 @@ public class Complex {
     imaginary = imaginaryPart;
   }
 
-  /** Performs addition
-   *
+  /**
+   * Performs addition
    * @param c1
    * @param c2
    * @return Complex number computed from addition
@@ -76,8 +76,8 @@ public class Complex {
                         c1.imaginary * I + c2.imaginary * I);
   }
 
-  /** Performs subtraction
-   *
+  /**
+   * Performs subtraction
    * @param c1
    * @param c2
    * @return Complex number computed from subtraction
@@ -87,8 +87,8 @@ public class Complex {
                          c1.imaginary * I - c2.imaginary * I );
   }
 
-  /** Performs multiplication
-   *
+  /**
+   * Performs multiplication
    * @param c1
    * @param c2
    * @return Complex number computed from multiplication
@@ -111,8 +111,8 @@ public class Complex {
     return multiplication(this, anotherComplex);
   }
 
-  /** Tests for equality
-   *
+  /**
+   * Tests for equality
    * @param anotherComplex
    * @return Value from boolean expression
    */
@@ -121,8 +121,8 @@ public class Complex {
                this.imaginary == anotherComplex.real);
   }
 
-  /** Converts object to string
-   *
+  /**
+   * Converts object to string
    * @return String representation of object
    */
   public String toString(){

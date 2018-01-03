@@ -21,27 +21,34 @@ public class Grades {
 
       System.out.println("Name of exercise 1:");
       exercise1 = keyboard.nextLine();
+
       System.out.println("Score received for exercise 1:");
       score1 = keyboard.nextInt();
+
       keyboard.nextLine(); // Inserted after nextInt to resolve input issues
       System.out.println("Total points possible for exercise 1:");
+
       possible1 = keyboard.nextInt();
       keyboard.nextLine();
 
       System.out.println("Name of exercise 2:");
       exercise2 = keyboard.nextLine();
+
       System.out.println("Score received for exercise 2:");
       score2 = keyboard.nextInt();
       keyboard.nextLine(); // Inserted after nextInt to resolve input issues
+
       System.out.println("Total points possible for exercise 2:");
       possible2 = keyboard.nextInt();
       keyboard.nextLine();
 
       System.out.println("Name of exercise 3:");
       exercise3 = keyboard.nextLine();
+
       System.out.println("Score received for exercise 3:");
       score3 = keyboard.nextInt();
-      keyboard.nextLine(); // Inserted after nextInt to resolve input issues
+      keyboard.nextLine();
+
       System.out.println("Total points possible for exercise 3:");
       possible3 = keyboard.nextInt();
       keyboard.nextLine();

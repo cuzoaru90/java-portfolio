@@ -19,7 +19,7 @@ public class AdultHeight {
 
     int fatherHeight, motherHeight;
     double childHeight = 0;
-    boolean programAlive = true;
+    boolean programRunning = true;
 
     String genderInput = "";
 
@@ -36,6 +36,7 @@ public class AdultHeight {
 
       System.out.println("Enter the height of the mother (in feet and inches):");
       motherHeight = keyboard.nextInt() * 12 + keyboard.nextInt();
+
       System.out.println("Enter the height of the father (in feet and inches):");
       fatherHeight = keyboard.nextInt() * 12 + keyboard.nextInt();
 
@@ -50,7 +51,7 @@ public class AdultHeight {
 
       System.out.printf("Estimated height of the child: %.2f inches\n\n", childHeight);
 
-    } while (programAlive);
+    } while (programRunning);
 
   }
 }

@@ -27,36 +27,68 @@ public class Pizza {
   private int cheeseToppings, pepperoniToppings, hamToppings;
   private String size;
 
+  /**
+   * Constructor
+   */
   public Pizza(){
     setToppings(1, 0, 0);
     setSize("medium");
   }
 
-  public Pizza(String s, int c, int p, int h){
-    setToppings(c, p, h);
-    setSize(s);
+  /**
+   * Constructor
+   * @param size
+   * @param cheese
+   * @param pepperoni
+   * @param ham
+   */
+  public Pizza(String size, int cheese, int pepperoni, int ham){
+    setToppings(cheese, pepperoni, ham);
+    setSize(size);
   }
 
+  /**
+   * Mutator
+   * @param size
+   */
   public void setSize(String size){
     this.size = size;
   }
 
+  /**
+   * Mutator
+   * @param cheese
+   * @param pepperoni
+   * @param ham
+   */
   public void setToppings(int cheese, int pepperoni, int ham){
     cheeseToppings = cheese;
     pepperoniToppings = pepperoni;
     hamToppings = ham;
   }
 
+  /**
+   * Accessor
+   * @return String representation of pizza and cost
+   */
   public String getDescription(){
     return "Size: " + size + ", " + cheeseToppings + " cheese toppings, " +
       pepperoniToppings + " pepperoni toppings, " + hamToppings + " ham toppings " +
       "\nCost: $" + calcCost();
   }
 
+  /**
+   * Accessor
+   * @return total number of toppings
+   */
   public int getToppings(){
     return cheeseToppings + pepperoniToppings + hamToppings;
   }
 
+  /**
+   * Calculate pizza cost
+   * @return pizza cost
+   */
   public int calcCost(){
 
     int baseCost = 0;

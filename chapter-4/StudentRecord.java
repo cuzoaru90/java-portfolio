@@ -27,6 +27,14 @@ public class StudentRecord {
   private double overallScore;
   private char letterGrade;
 
+  /**
+   * Constructor
+   * @param q1
+   * @param q2
+   * @param q3
+   * @param midterm
+   * @param finalExam
+   */
   public StudentRecord(int q1, int q2, int q3, int midterm, int finalExam){
     quiz1 = q1;
     quiz2 = q2;
@@ -36,18 +44,9 @@ public class StudentRecord {
     finalExamScore = finalExam;
   }
 
-  public double getOverallScore(){
-    return overallScore;
-  }
-
-  public void printScore(){
-    System.out.println(overallScore);
-  }
-
-  public void printLetterGrade(){
-    System.out.println(letterGrade);
-  }
-
+  /**
+   * Mutator; change overall score based on sum of scores
+   */
   public void calculateOverallScore(){
     double quizTotal = ( (quiz1 + quiz2 + quiz3 * 1.0 )/30 ) * 25;
     double midTotal = (midtermScore * 1.0/100) * 35;
@@ -56,6 +55,9 @@ public class StudentRecord {
     overallScore = (quizTotal + midTotal + finalTotal);
   }
 
+  /**
+   * Mutator; assign grades based on boolean expressions
+   */
   public void assignLetterGrade(){
 
    if (overallScore >= 90){
@@ -72,6 +74,14 @@ public class StudentRecord {
    }
    else
      letterGrade = 'F';
+  }
+
+  /**
+   * String conversion
+   * @return String representation of overallScore and grade
+   */
+  public String toString(){
+    return overallScore + " " + letterGrade;
   }
 
 }

@@ -12,33 +12,53 @@ public class SpeciesRecord {
   private int population;
   private double growthRate;
 
-  // constructor
+  /**
+   * Constructor
+   */
   public SpeciesRecord(){
     name = "";
     population = 10;
     growthRate = .1;
   }
 
+  /**
+   * Constructor
+   * @param newName
+   * @param size
+   * @param rate
+   */
   public SpeciesRecord(String newName, int size, double rate){
     name = newName;
     population = size;
     growthRate = rate;
   }
 
+  /**
+   *
+   * @return String representation of species
+   */
   public String toString(){
     return name + " " + population + " " + growthRate;
   }
 
+  /**
+   * Equals method for object comparison
+   * @param otherRecord
+   * @return value from boolean expression
+   */
   public boolean equals(SpeciesRecord otherRecord){
     return (name.equals(otherRecord.name) &&
       population == otherRecord.population &&
       growthRate == otherRecord.growthRate);
   }
 
+  /**
+   * Determines if species is endangered
+   * @return value from boolean expression
+   */
   public boolean endangered(){
     return (growthRate < 0);
   }
-
 
 
 }

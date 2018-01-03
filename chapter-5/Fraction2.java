@@ -9,7 +9,6 @@ fraction is 20/60 and the other is 1/3, then the method should return true.
 Embed your class in a test program that allows the user to create a fraction. Then the program should loop repeatedly
 until the user decides to quit. Inside the body of the loop, the program should allow the user to enter a target
 fraction into an anonymous object and learn whether the fractions are identical.
-
  */
 
 public class Fraction2 {
@@ -25,16 +24,21 @@ public class Fraction2 {
   }
 
 
+  /**
+   * Mutator
+   * @param n
+   * @param d
+   */
   public void setValues(int n, int d){
     numerator = n;
     denominator = d;
   }
 
-  public void displayFraction(){
-    System.out.println(numerator + "/" + denominator );
-  }
-
-  // do comparison with local fractions; avoid mutation on calling object
+  /**
+   * Equals method
+   * @param anotherFraction
+   * @return Value of boolean expression
+   */
   public boolean equals(Fraction2 anotherFraction){
 
       Fraction2 thisFraction = Fraction2.evaluateLowestTerms(numerator, denominator);
@@ -44,7 +48,20 @@ public class Fraction2 {
             thisFraction.denominator == otherFraction.denominator);
   }
 
-  // returns fraction objects that will be used in scope of the equals method above
+  /**
+   * toString conversion
+   * @return String representation of fraction
+   */
+  public String toString(){
+    return numerator + "/" + denominator;
+  }
+
+  /**
+   * Create new fraction with lowest common denominator
+   * @param numerator
+   * @param denominator
+   * @return new Fraction
+   */
   public static Fraction2 evaluateLowestTerms(int numerator, int denominator){
 
     int counter = denominator;
@@ -57,9 +74,9 @@ public class Fraction2 {
         numerator /= counter;
       }
         counter--;
-      }
+    }
 
-      return new Fraction2(numerator, denominator);
+    return new Fraction2(numerator, denominator);
   }
 
 }

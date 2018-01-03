@@ -30,13 +30,9 @@ public class Babylonia {
 
     r = n / guess;
 
-    // Repeats steps 2 and 3 an arbitrary number of times.
     guess = (guess + r) / 2;
 
-    r = n / guess;
-
-    guess = (guess + r) / 2;
-
+    // Repeats steps 2 and 3 five more times.
     r = n / guess;
 
     guess = (guess + r) / 2;
@@ -58,7 +54,6 @@ public class Babylonia {
     guess = (guess + r) / 2;
 
     System.out.printf("%.2f", r);
-
 
   }
 

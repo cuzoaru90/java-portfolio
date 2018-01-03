@@ -27,10 +27,6 @@ public class VendingMachine {
     System.out.printf("You bought an item for %d cents, and gave me a dollar, so your change is %d quarters," +
              " %d dimes, and %d nickels", cost, quarters, dimes, nickels);
 
-
-
-
-
   }
 
 }

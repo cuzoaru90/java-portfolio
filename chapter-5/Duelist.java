@@ -40,6 +40,11 @@ public class Duelist {
   private double accuracy;
   private boolean alive;
 
+  /**
+   * Constructor
+   * @param name
+   * @param hitRate
+   */
   public Duelist(String name, double hitRate){
     this.name = name;
     accuracy = hitRate;
@@ -47,6 +52,10 @@ public class Duelist {
     duelistsAlive++;
   }
 
+  /**
+   * Performs shooting
+   * @param target
+   */
   public void shootAtTarget(Duelist target){
 
     // generates hit
@@ -67,14 +76,25 @@ public class Duelist {
 
   }
 
+  /**
+   * Convert variables to String
+   * @return String representation of duelist
+   */
   public String toString(){
     return name + " is alive: " + alive + "\n";
   }
 
+  /**
+   * Checks if duelist is alive
+   * @return Value of boolean expression
+   */
   public boolean isAlive(){
     return alive;
   }
 
+  /**
+   * Restores fallen duelist
+   */
   public void revive(){
     alive = true;
     duelistsAlive++;

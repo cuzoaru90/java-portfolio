@@ -13,26 +13,43 @@ public class Odometer {
 
   private double milesDriven, fuelEfficiency;
 
-  // constructor
+  /**
+   * Constructor
+   * @param miles
+   * @param efficiency
+   */
   public Odometer(double miles, double efficiency){
     milesDriven = miles;
     fuelEfficiency = efficiency;
   }
 
-  // accessor
+  /**
+   * Computes gas consumed on trip
+   * @return Computed gas consumption
+   */
   public double gasConsumed(){
     return milesDriven / fuelEfficiency;
   }
 
-  // mutator
+  /**
+   * Mutator
+   */
   public void resetOdometer(){
     milesDriven = 0;
   }
 
+  /**
+   * Mutator
+   * @param miles
+   */
   public void addToMileage(double miles){
     milesDriven += miles;
   }
 
+  /**
+   * Mutator
+   * @param efficiency
+   */
   public void setEfficiency(double efficiency){
     fuelEfficiency = efficiency;
   }

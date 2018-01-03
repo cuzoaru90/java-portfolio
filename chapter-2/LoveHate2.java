@@ -19,19 +19,18 @@ Chapter 2 allows input
 import java.util.*;
 
 public class LoveHate2 {
+  public static void main (String[] args) {
 
-    public static void main (String[] args) {
+    String input = "";
+    Scanner keyboard = new Scanner(System.in);
 
-        String input = "";
-        Scanner keyboard = new Scanner(System.in);
+    System.out.println("Enter a line of text.");
 
-        System.out.println("Enter a line of text.");
+    input = keyboard.nextLine();
+    input = input.replaceFirst("hate", "love");
 
-        input = keyboard.nextLine();
-        input = input.replaceFirst("hate", "love");
+    System.out.println("I have changed the line to read:\n" + input);
 
-        System.out.println("I have changed the line to read:\n" + input);
-
-    }
+  }
 
 }

@@ -22,7 +22,7 @@ public class Fibonacci {
   public static void main(String[] args){
 
     int populationInput = 0, totalPopulation = 0, days = 0;
-    boolean programAlive = true;
+    boolean programRunning = true;
     String choice = "";
     Scanner keyboard = new Scanner(System.in);
 
@@ -44,14 +44,15 @@ public class Fibonacci {
 
       System.out.printf("Population after %d days is %d pounds\n", days, totalPopulation);
       System.out.println("Do you want to do another calculation? Press q to quit.");
+
       totalPopulation = 0;
       choice = keyboard.next();
 
       if ( choice.equals("q") )
-        programAlive = false;
+        programRunning = false;
 
-    } while (programAlive);
-    
+    } while (programRunning);
+
   }
 
 }

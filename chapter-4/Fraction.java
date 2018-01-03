@@ -11,53 +11,93 @@ public class Fraction {
 
   private int numerator, denominator;
 
-  // constructor
+  /**
+   * Constructor
+   */
+  public Fraction(){
+    numerator = 0;
+    denominator = 0;
+  }
+
+  /**
+   * Constructor
+   * @param nInput
+   * @param dInput
+   */
   public Fraction(int nInput, int dInput){
     setNumerator(nInput);
     setDenominator(dInput);
   }
 
-  // returns quotient
+  /**
+   * Computes quotient
+   * @return Value of computed quotient
+   */
   public double getQuotient(){
     return (numerator * 1.0) / denominator;
   }
 
-  // mutator
+  /**
+   * Mutator
+   * @param n
+   */
   public void setNumerator(int n){
     numerator = n;
   }
 
-  // mutator
+  /**
+   * Mutator
+   * @param d
+   */
   public void setDenominator(int d){
     denominator = d;
   }
 
-  public void getLowestTerms(){
+  /**
+   * Display reduced fraction to screen; uses local variables to avoid mutation on instance variables
+   *
+   */
+  public void outputLowestFraction(){
 
      int counter = 0;
+     int lowestNumerator = numerator;
+     int lowestDenominator = denominator;
 
-     if (numerator > denominator){
-       counter = denominator;
+     if (lowestNumerator > lowestDenominator){
+       counter = lowestDenominator;
      }
-     else if (denominator > numerator){
-       counter = numerator;
+     else if (lowestDenominator > lowestNumerator){
+       counter = lowestNumerator;
      }
 
      while (counter > 0){
-       if (denominator % counter == 0 &&
-           numerator % counter == 0 )
+       if (lowestDenominator % counter == 0 &&
+           lowestNumerator % counter == 0 )
        {
-         denominator /= counter;
-         numerator /= counter;
+         lowestDenominator /= counter;
+         lowestNumerator /= counter;
        }
        counter--;
      }
 
+     outputFraction(lowestNumerator, lowestDenominator);
   }
 
-  public void outputFraction(){
+  /**
+   * Helper for method above
+   * @param numerator
+   * @param denominator
+   */
+  public void outputFraction(int numerator, int denominator ){
     System.out.printf("%d/%d\n", numerator, denominator);
   }
 
+ /**
+  * Convert instance variables to a String
+  * @return String representation of object
+  */
+  public String toString(){
+    return numerator + "/" + denominator;
+  }
 
 }

@@ -17,16 +17,16 @@ public class Money {
 
   private int dollars, cents;
 
-  /** No-parameter ("default") constructor
-   *
+  /**
+   * No-parameter ("default") constructor
    */
   public Money(){
     dollars = 0;
     cents = 0;
   }
 
-  /** One parameter constructor
-   *
+  /**
+   * One parameter constructor
    * @param bills
    */
   public Money(int bills){
@@ -34,8 +34,8 @@ public class Money {
     cents = 0;
   }
 
-  /** Two parameter constructor
-   *
+  /**
+   * Two parameter constructor
    * @param bills
    * @param coins
    */
@@ -45,8 +45,8 @@ public class Money {
   }
 
 
-  /** Adds money objects
-   *
+  /**
+   * Adds money objects
    * @param amount1
    * @param amount2
    * @return Money object from addition
@@ -62,8 +62,8 @@ public class Money {
 
   }
 
-  /** Subtracts money objects
-   *
+  /**
+   * Subtracts money objects
    * @param amount1
    * @param amount2
    * @return Money object from subtraction
@@ -87,16 +87,16 @@ public class Money {
     return minus(this, anotherMoney);
   }
 
-  /** Converts money object to String
-   *
+  /**
+   * Converts money object to String
    * @return String representation of Money
    */
   public String toString(){
     return dollars + " dollars " + cents + " cents";
   }
 
-  /** Checks for equality
-   *
+  /**
+   * Checks for equality
    * @param anotherMoney
    * @return Value of boolean expression
    */

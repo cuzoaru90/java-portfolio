@@ -15,7 +15,9 @@ public class Team {
     private String name1, name2, name3, name4;
     private Competition competition1, competition2; // unused for now
 
-    // default constructor
+    /**
+     * Constructor
+     */
     public Team(){
       teamName = "The Team";
       name1 = "Alpha";
@@ -24,7 +26,10 @@ public class Team {
       name4 = "Epsilon";
     }
 
-    // deep copy constructor
+    /**
+     * Copy constructor
+     * @param otherTeam
+     */
     public Team(Team otherTeam){
       teamName = otherTeam.teamName;
       name1 = otherTeam.name1;
@@ -33,23 +38,39 @@ public class Team {
       name4 = otherTeam.name4;
     }
 
-
+    /**
+     * Accessor
+     * @return Name of team
+     */
     public String getName(){
       return teamName;
     }
 
-    // mutator
+    /**
+     * Mutator
+     * @param newName
+     */
     public void changeName(String newName){
       teamName = newName;
     }
 
-    // mutator
+    /**
+     * Mutator
+     * @param firstComp
+     * @param secondComp
+     */
     public void setCompetition(Competition firstComp, Competition secondComp){
       competition1 = firstComp;
       competition2 = secondComp;
     }
 
-    // mutator
+    /**
+     * Mutator
+     * @param member1
+     * @param member2
+     * @param member3
+     * @param member4
+     */
     public void changeMembers(String member1, String member2, String member3, String member4){
       name1 = member1;
       name2 = member2;
@@ -57,6 +78,9 @@ public class Team {
       name4 = member4;
     }
 
+    /**
+     * Display method
+     */
     public void displayTeam(){
       System.out.printf("Team: %s\nMember: %s, %s, %s, %s\n", teamName, name1, name2, name3, name4);
     }

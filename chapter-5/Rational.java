@@ -29,16 +29,16 @@ public class Rational {
 
   private int numerator, denominator;
 
-  /** No-parameter ("default") constructor
-   *
+  /**
+   * No-parameter ("default") constructor
    */
   public Rational(){
     numerator = 0;
     denominator = 1;
   }
 
-  /** One parameter constructor
-   *
+  /**
+   * One parameter constructor
    * @param wholeNumber
    */
   public Rational(int wholeNumber){
@@ -46,8 +46,8 @@ public class Rational {
     denominator = 1;
   }
 
-  /** Two parameter constructor
-   *
+  /**
+   * Two parameter constructor
    * @param n1
    * @param n2
    */
@@ -56,8 +56,8 @@ public class Rational {
     denominator = n2;
   }
 
-  /** Mutator; sets values
-   *
+  /**
+   * Mutator; sets values
    * @param n1
    * @param n2
    */
@@ -66,16 +66,16 @@ public class Rational {
     denominator = n2;
   }
 
-  /** Accessor
-   *
+  /**
+   * Accessor
    * @return denominator variable of object
    */
   public int getDenominator(){
     return denominator;
   }
 
-  /** Accessor
-   *
+  /**
+   * Accessor
    * @return numerator variable of object
    */
   public int getNumerator(){
@@ -83,8 +83,8 @@ public class Rational {
   }
 
 
-  /** Move negative sign from denominator to numerator (if applicable)
-   *
+  /**
+   * Move negative sign from denominator to numerator (if applicable)
    */
   public void normalize(){
 
@@ -136,7 +136,6 @@ public class Rational {
 
   /**
    * Performs subtraction of Rational numbers
-   *
    * @param r1
    * @param r2
    * @return Rational computed from subtraction
@@ -172,7 +171,6 @@ public class Rational {
 
   /**
    * Performs multiplication of Rational numbers
-   *
    * @param r1
    * @param r2
    * @return Rational computed from multiplication
@@ -206,7 +204,6 @@ public class Rational {
 
   /**
    * Performs division of Rational numbers
-   *
    * @param r1
    * @param r2
    * @return Rational computed from division
@@ -257,8 +254,8 @@ public class Rational {
 
 
 
-  /** Checks for equality between two Rational numbers
-   *
+  /**
+   * Checks for equality between two Rational numbers
    * @param anotherRational
    * @return Value from the boolean expression
    */
@@ -267,8 +264,8 @@ public class Rational {
              denominator * anotherRational.numerator);
   }
 
-  /** Converts object to string
-   *
+  /**
+   * Converts object to string
    * @return String representation of object
    */
   public String toString(){

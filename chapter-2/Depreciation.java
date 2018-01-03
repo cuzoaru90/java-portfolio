@@ -30,6 +30,5 @@ public class Depreciation {
 
     System.out.printf("The item's yearly depreciation is %.2f", depreciation);
 
-
   }
 }

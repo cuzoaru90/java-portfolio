@@ -24,24 +24,44 @@ public class Temperature {
   private double degrees;
   private char scale;
 
+  /**
+   * Constructor
+   */
   public Temperature(){
     degrees = 0;
     scale = 'C';
   }
 
+  /**
+   * Constructor
+   * @param inputVal
+   */
   public Temperature(int inputVal){
     degrees = inputVal;
   }
 
+  /**
+   * Constructor
+   * @param scale
+   */
   public Temperature(char scale){
     this.scale = scale;
   }
 
+  /**
+   * Constructor
+   * @param inputVal
+   * @param scale
+   */
   public Temperature(int inputVal, char scale){
     degrees = inputVal;
     this.scale = scale;
   }
 
+  /**
+   * Accessor
+   * @return degrees in Celsius
+   */
   public double getDegreesC(){
     if (scale == 'C') {
       return degrees;
@@ -50,6 +70,10 @@ public class Temperature {
     return (5.0 * (degrees - 32) )/9;
   }
 
+  /**
+   * Accessor
+   * @return degrees in Fahrenheit
+   */
   public double getDegreesF(){
     if (scale == 'F') {
       return degrees;
@@ -58,6 +82,11 @@ public class Temperature {
     return (9.0 * degrees)/5 + 32;
   }
 
+  /**
+   * Comparison
+   * @param otherTemp
+   * @return value of boolean expression
+   */
   public boolean equals(Temperature otherTemp){
 
     double convertedDegrees = 0;
@@ -72,6 +101,11 @@ public class Temperature {
     return (this.degrees == convertedDegrees);
   }
 
+  /**
+   * Comparison
+   * @param otherTemp
+   * @return value of boolean expression
+   */
   public boolean lessThan(Temperature otherTemp){
 
     double convertedDegrees = 0;
@@ -86,6 +120,11 @@ public class Temperature {
     return (degrees < convertedDegrees);
   }
 
+  /**
+   * Comparison
+   * @param otherTemp
+   * @return value of boolean expression
+   */
   public boolean greaterThan(Temperature otherTemp){
 
     double convertedDegrees = 0;

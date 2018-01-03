@@ -21,41 +21,42 @@ public class Craps {
 
     int diceRoll, wins = 0, losses = 0;
 
+    // Primary game loop for craps game
     for (int i = 0; i < 10000; i++) {
       diceRoll = (int) (Math.random() * 6) + 1
           + (int) (Math.random() * 6) + 1;
 
       switch(diceRoll){
-          case 7:
-          case 11:
-            wins++;
-            break;
-          case 2:
-          case 3:
-          case 12:
-            losses++;
-            break;
-          default:
-            int point = diceRoll;
+        case 7:
+        case 11:
+          wins++;
+          break;
+        case 2:
+        case 3:
+        case 12:
+          losses++;
+          break;
+        default:
+          int point = diceRoll;
 
-           // checks for wins and losses
-            boolean gameOver = false;
+          // checks for wins and losses
+          boolean gameOver = false;
 
-           // Loop continues until either the roll is equal to "the point" or 7
-            while ( !gameOver ){
-              diceRoll = (int) (Math.random() * 6) + 1
+          // Loop continues until either the roll is equal to "the point" or 7
+          while ( !gameOver ){
+            diceRoll = (int) (Math.random() * 6) + 1
                    + (int) (Math.random() * 6) + 1;
 
-              if (diceRoll == point ) {
-                 gameOver = true;
-                 wins++;
-              }
-              else if (diceRoll == 7) {
-                 gameOver = true;
-                 losses++;
-              }
-           } // End of while-loop
-           break;
+            if (diceRoll == point ) {
+              gameOver = true;
+              wins++;
+            }
+            else if (diceRoll == 7) {
+              gameOver = true;
+              losses++;
+            }
+          } // End of while-loop
+          break;
       } // End of switch statement
     } // End of game loop
 

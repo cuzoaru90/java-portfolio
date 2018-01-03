@@ -17,26 +17,32 @@ public class Bill {
 
     System.out.println("Input name of item 1:");
     item1 = keyboard.nextLine();
+
     System.out.println("Input quantity of item 1:");
     quantity1 = keyboard.nextInt();
     keyboard.nextLine(); // Inserted after nextInt and nextDouble to resolve input issues
+
     System.out.println("Input price of item 1:");
     price1 = keyboard.nextDouble();
     keyboard.nextLine();
 
     System.out.println("Input name of item 2:");
     item2 = keyboard.nextLine();
+
     System.out.println("Input quantity of item 2:");
     quantity2 = keyboard.nextInt();
     keyboard.nextLine();
+
     System.out.println("Input price of item 2:");
     price2 = keyboard.nextDouble();
     keyboard.nextLine();
 
     System.out.println("Input name of item 3:");
     item3 = keyboard.nextLine();
+
     System.out.println("Input quantity of item 3:");
     quantity3 = keyboard.nextInt();
+
     System.out.println("Input price of item 3:");
     price3 = keyboard.nextDouble();
 

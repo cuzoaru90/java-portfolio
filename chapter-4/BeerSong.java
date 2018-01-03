@@ -24,21 +24,32 @@ public class BeerSong {
 
   private int beerBottles;
 
-  // constructor
+  /**
+   * Constructor
+   * @param bottles
+   */
   public BeerSong(int bottles){
     beerBottles = bottles;
   }
 
-  // accessor method
+  /**
+   * Accessor
+   * @return Number of beer bottles (integer)
+   */
   public int getBottles(){
     return beerBottles;
   }
 
-  // mutator method
+  /**
+   * Mutator
+   */
   public void passBottleDown(){
     beerBottles--;
   }
 
+  /**
+   * Prints BeerSong
+   */
   public void printSong(){
 
     int numberOfStanzas = beerBottles;
@@ -61,12 +72,14 @@ public class BeerSong {
       System.out.printf("%s bottles of beer on the wall.\n ", bottleString );
 
       numberOfStanzas--;
-
     }
 
   }
 
-  // no parameters used here, will simply call on object with "this" keyword
+  /**
+   * Converts all numbers from 0-99
+   * @return String value from conversion
+   */
   private String convertToString(){
 
     String result = "";
@@ -88,7 +101,10 @@ public class BeerSong {
 
   }
 
-  // converts from 20-99
+  /**
+   * Converts from 20-99
+   * @return String value from conversion
+   */
   private String tensConversion(){
 
     int tensPlace = 0;
@@ -128,6 +144,10 @@ public class BeerSong {
     return tensString;
   }
 
+  /**
+   * Converts from 10-19
+   * @return String value from conversion
+   */
   private String teenConversion() {
 
     int value = 0;
@@ -169,6 +189,10 @@ public class BeerSong {
     return result;
   }
 
+  /**
+   * Converts ones place
+   * @return String value from conversion
+   */
   private String onesConversion(){
 
     int onesPlace = 0;
