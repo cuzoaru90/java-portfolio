@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * The goal for this programming project is to create a simple 2D predator-prey simulation. In this simulation, the prey
  * are ants and the predators are doodlebugs. These critters live in a world composed of a 20x20 grid of cells. Only
@@ -47,7 +49,7 @@ public abstract class Organism {
 
   protected Cell cell;
 
-  public abstract void move(Cell destination);
+  public abstract void move(Cell destination, ArrayList<Organism> critters);
   public abstract void breed(Cell target, Organism offspring);
 
 
@@ -58,5 +60,6 @@ public abstract class Organism {
   public void assignCell(Cell aCell){
     cell = aCell;
   }
+
 
 }

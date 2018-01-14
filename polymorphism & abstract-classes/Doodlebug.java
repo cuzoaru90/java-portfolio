@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Doodlebug extends Organism {
 
   private int daysWithoutFood;
@@ -8,10 +10,6 @@ public class Doodlebug extends Organism {
     daysWithoutFood = 0;
   }
 
-  public int daysNotEaten(){
-    return daysWithoutFood;
-  }
-
   @Override
   public void breed(Cell target, Organism offspring) {
     target.update(offspring, true);
@@ -19,21 +17,35 @@ public class Doodlebug extends Organism {
   }
 
   @Override
-  public void move(Cell destination) {
+  public void move(Cell destination, ArrayList<Organism> critters) {
+
+    if (destination.getCritter() == null) {
+      this.goWithoutFood();
+    }
+    else if (destination.getCritter() instanceof Ant){
+      daysWithoutFood = 0;
+    }
+
     cell.update(null, false);
     destination.update(this, true);
     this.assignCell(destination);
+
+    if (daysNotEaten() == 3){
+      starve(critters,this);
+    }
+
+  }
+
+  public int daysNotEaten(){
+    return daysWithoutFood;
   }
 
   public void goWithoutFood(){
     daysWithoutFood++;
   }
 
-  public void resetHunger(){
-    daysWithoutFood = 0;
-  }
-
-  public void starve(){
+  public void starve(ArrayList<Organism> critters, Organism critter){
     cell.update(null, false);
+    critters.remove(critter);
   }
 }

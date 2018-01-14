@@ -8,8 +8,8 @@ public class OrganismTest {
     createWorld(critterWorld);
 
     // Partially filled arrays aren't cutting it anymore
-    ArrayList<Doodlebug> doodlebugs = new ArrayList<Doodlebug>();
-    ArrayList<Ant> ants = new ArrayList<Ant>();
+    ArrayList<Organism> doodlebugs = new ArrayList<Organism>();
+    ArrayList<Organism> ants = new ArrayList<Organism>();
 
     while (doodlebugs.size() < 5 || ants.size() < 100) {
 
@@ -50,14 +50,21 @@ public class OrganismTest {
       System.out.println("Doodlebugs: " + doodlebugs.size());
       System.out.println("Ants: " + ants.size());
 
-      moveDoodlebugs(doodlebugs, ants, critterWorld);
+      // Doodlebugs move first
+      moveCritters(doodlebugs, ants, critterWorld);
 
-      starveDoodlebugs(doodlebugs);
       // Breed during every eighth time step
       if ( (counter > 0) && counter % 8 == 0) {
-        breedDoodlebugs(doodlebugs, critterWorld);
+        breedCritters(doodlebugs, critterWorld);
       }
-      // moveAnts()
+
+      // Ants move second
+      moveCritters(ants, ants, critterWorld);
+
+      // Breed during every third time step
+      if ( (counter > 0) && counter % 3 == 0) {
+        breedCritters(ants, critterWorld);
+      }
 
       counter++;
 
@@ -87,90 +94,91 @@ public class OrganismTest {
     }
   }
 
-  public static void moveDoodlebugs(ArrayList<Doodlebug> bugs, ArrayList<Ant> ants, Cell[][] world){
+  /**
+   * Makes move for each critter (doodlebug or ant) in the the organism list; move() method uses late binding
+   * @param critters Organism list (doodlebug or ant)
+   * @param ants List of ants, remove an ant if doodlebug moves to space occupied by ant
+   * @param world 20 x 20 grid of all cells (occupied or vacant);
+   */
+  public static void moveCritters(ArrayList<Organism> critters, ArrayList<Organism> ants, Cell[][] world){
 
-    for (int i = 0; i < bugs.size(); i++){
+    for (int i = 0; i < critters.size(); i++){
 
-      Doodlebug bug = bugs.get(i);
+      Organism critter = critters.get(i);
 
-      int currentRow = bug.cell.getRow();
-      int currentColumn = bug.cell.getColumn();
+      int currentRow = critter.cell.getRow();
+      int currentColumn = critter.cell.getColumn();
 
-      Cell destination = getAdjacentCell(currentRow, currentColumn, world);
+      Cell destination = randomAdjacentCell(currentRow, currentColumn, world);
 
-      System.out.println("Current location: " + currentRow + " " +
-              currentColumn );
-
-      if (destination != null) {
+      if (destination != null && critter instanceof Doodlebug) {
         Organism target = destination.getCritter();
 
-        if (target == null) {
-          bug.move(destination);
-          bug.goWithoutFood();
+        if (target instanceof Doodlebug) {
+          // System.out.println("Doodlebug in the way");
         }
-        else if (target instanceof Ant) {
-          System.out.println("Doodlebug eats the ant");
-          bug.move(destination);
-          bug.resetHunger();
-          removeAnt((Ant) target, ants);
-        }
-        else if (target instanceof Doodlebug) {
-          System.out.println("Doodlebug in the way");
+        else{
+          if (target instanceof Ant){
+            removeAnt( target, ants);
+          }
+          critter.move(destination, critters);
         }
 
+      }
+      else if (destination != null && critter instanceof Ant){
+        Organism target = destination.getCritter();
+        if (target == null){
+          critter.move(destination, critters);
+        }
       }
 
     }
 
   }
 
-  public static void breedDoodlebugs(ArrayList<Doodlebug> bugs, Cell[][] world){
+  /**
+   * Breeds for each critter (doodlebug or ant) in the the organism list; breed() method uses late binding
+   * @param critters Organism list (doodlebug or ant)
+   * @param world 20 x 20 grid of all cells (occupied or vacant);
+   */
+  public static void breedCritters(ArrayList<Organism> critters, Cell[][] world){
 
-    int bugsInCell = bugs.size();
+    int breedingCritters = critters.size();
 
-    for (int i = 0; i < bugsInCell; i++) {
+    for (int i = 0; i < breedingCritters; i++) {
 
-      Doodlebug bug = bugs.get(i);
+      Organism critter = critters.get(i);
 
-      int currentRow = bug.cell.getRow();
-      int currentColumn = bug.cell.getColumn();
+      int currentRow = critter.cell.getRow();
+      int currentColumn = critter.cell.getColumn();
 
-      System.out.println("Current breeding location: " + currentRow + " " +
-              currentColumn );
-
-      Cell adjacentCell = getAdjacentCell(currentRow, currentColumn, world);
+      Cell adjacentCell = anyVacantCell(currentRow, currentColumn, world);
 
       if (adjacentCell != null) {
 
-        Organism target = adjacentCell.getCritter();
-
-        if (target == null) {
+        if (critter instanceof Doodlebug) {
           Doodlebug newBug = new Doodlebug();
-          bug.breed(adjacentCell, newBug);
-          bugs.add(newBug);
+          critter.breed(adjacentCell, newBug);
+          critters.add(newBug);
+        }
+        else if (critter instanceof Ant){
+          Ant newAnt = new Ant();
+          critter.breed(adjacentCell, newAnt);
+          critters.add(newAnt);
         }
       }
 
     }
   }
 
-  public static void starveDoodlebugs(ArrayList<Doodlebug> bugs){
-    for (int i = 0; i < bugs.size(); i++){
-      Doodlebug bug = bugs.get(i);
-      if (bug.daysNotEaten() == 3){
-        bug.starve();
-        removeBug(bug, bugs);
-      }
-    }
-  }
 
-  public static void removeAnt(Ant anAnt, ArrayList<Ant> antList ){
+  public static void removeAnt(Organism anAnt, ArrayList<Organism> antList ){
 
     int x = anAnt.cell.getRow();
     int y = anAnt.cell.getColumn();
 
     for (int i = 0; i < antList.size(); i++){
-      Ant target = antList.get(i);
+      Organism target = antList.get(i);
       if (x == target.cell.getRow() && y == target.cell.getColumn() ){
         antList.remove(target);
       }
@@ -178,22 +186,7 @@ public class OrganismTest {
 
   }
 
-  public static void removeBug(Doodlebug aBug, ArrayList<Doodlebug> bugList ){
-
-    int x = aBug.cell.getRow();
-    int y = aBug.cell.getColumn();
-
-    for (int i = 0; i < bugList.size(); i++){
-      Doodlebug target = bugList.get(i);
-
-      if (x == target.cell.getRow() && y == target.cell.getColumn() ){
-        bugList.remove(target);
-      }
-    }
-
-  }
-
-  public static Cell getAdjacentCell(int row, int column, Cell[][] world){
+  public static Cell randomAdjacentCell(int row, int column, Cell[][] world){
 
     int direction = (int) (Math.random() * 4) + 1;
 
@@ -210,6 +203,25 @@ public class OrganismTest {
       case 4:
         if (row + 1 < 20)
           return world[row + 1][column];
+    }
+
+    return null;
+
+  }
+
+  public static Cell anyVacantCell(int row, int column, Cell[][] world){
+
+    if (column - 1 > -1 && !world[row][column - 1].isOccupied() ){
+      return world[row][column - 1];
+    }
+    else if (row - 1 > -1 && !world[row - 1][column].isOccupied() ){
+      return world[row - 1][column];
+    }
+    else if (column + 1 < 20 && !world[row][column + 1].isOccupied() ){
+      return world[row][column + 1];
+    }
+    else if (row + 1 < 20 && !world[row + 1][column].isOccupied() ){
+      return world[row + 1][column];
     }
 
     return null;
