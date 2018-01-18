@@ -4,6 +4,4 @@ public class NegativeNumberException extends Exception {
     super("N must be positive, try again");
   }
 
-
-
 }
