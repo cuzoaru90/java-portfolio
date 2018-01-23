@@ -1,4 +1,5 @@
-public class Entry {
+import java.io.Serializable;
+public class Entry implements Serializable {
 
   private String name;
   private int ranking;
@@ -32,6 +33,10 @@ public class Entry {
 
   public String getName(){
     return name;
+  }
+
+  public String toString(){
+    return "Name: " + name + ", Rank: " + ranking + ", Births: " + numberOfBirths;
   }
 
 
