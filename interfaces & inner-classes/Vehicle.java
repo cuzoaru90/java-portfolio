@@ -1,3 +1,7 @@
+/**
+ * Inner class demonstration with private class and inheritance
+ */
+
 public class Vehicle {
 
   // inner class definition
