@@ -4,14 +4,16 @@ public class TreeCloneDemo {
 
     int [] numbers = {40, 33, 95, 67, 25, 106, 46, 50, 14};
 
-    BinarySearchTree tree = new BinarySearchTree();
+    BinarySearchTree t1 = new BinarySearchTree();
 
     for (int n: numbers){
-      tree.insert(n);
+      t1.insert(n);
     }
 
-    tree.printTree();
-      
+    BinarySearchTree t2 = t1.cloneTree();
+
+    System.out.println(t1.equals(t2));
+
   }
 
 

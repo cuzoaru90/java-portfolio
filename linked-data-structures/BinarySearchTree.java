@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BinarySearchTree implements Cloneable{
 
   public class BSTNode{
@@ -52,6 +54,21 @@ public class BinarySearchTree implements Cloneable{
       inOrderTraversal(root.right);
     }
 
+  }
+
+  public BinarySearchTree cloneTree(){
+    BinarySearchTree copy = new BinarySearchTree();
+
+    if (root != null){
+      copy.root = root;
+    }
+
+    return copy;
+
+  }
+
+  public boolean equals(BinarySearchTree otherTree){
+    return otherTree.root.equals(root);
   }
 
 
