@@ -1,0 +1,12 @@
+A null B null E
+B null null A F
+C null D null G
+D null null C null
+E A null null I
+F B G null null
+G C H F K
+H null null G L
+I E J null null
+J null null I null
+K G null null null
+L H null null null
